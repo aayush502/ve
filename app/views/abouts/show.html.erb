@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Privacy:</strong>
+  <%= @about.privacy %>
+</p>
+
+<p>
+  <strong>Welcome:</strong>
+  <%= @about.welcome %>
+</p>
+
+<p>
+  <strong>Thank you:</strong>
+  <%= @about.thank_you %>
+</p>
+
+<p>
+  <strong>Terms and condition:</strong>
+  <%= @about.terms_and_condition %>
+</p>
+
+<%= link_to 'Edit', edit_about_path(@about) %> |
+<%= link_to 'Back', abouts_path %>

@@ -1,0 +1,34 @@
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<% if(@bctitle || @bc1)%>
+<div class="page-breadcrumb">
+   <div class="row">
+      <div class="col-12 align-self-center">
+        <% if(@bctitle) %>
+         <h4 class="page-title text-truncate text-dark font-weight-medium mb-1"><%= @bctitle %></h4>
+         <%end%>
+         <% if(@bc1 || @bc2) %>
+         <div class=" align-items-center">
+            <nav aria-label="breadcrumb " class="d-flex">
+  	            <%= link_to '<i data-feather="arrow-left" class="feather-icon"></i>'.html_safe,  @back, class: 'btn-back mb-2' %>
+               <ol class="breadcrumb m-0 p-0" >
+                  <li class="breadcrumb-item ml-3"><a href="/" class="text-muted">Home</a></li>
+                  <% if(@bc2)%>
+                  <li class="breadcrumb-item"><a href="/admin/<%= @bclink %>" class="text-muted"><%=@bc1%></a></li>
+                  <li class="breadcrumb-item text-muted active" aria-current="page"><%=@bc2%></li>
+                  <%else%>
+                  <li class="breadcrumb-item text-muted active" aria-current="page"><%=@bc1%></li>
+               <%end%>
+
+               </ol>
+            </nav>
+         </div>
+         <%end%>
+      </div>
+   </div>
+</div>
+<%end%>
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->

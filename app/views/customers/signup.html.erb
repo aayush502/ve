@@ -1,0 +1,29 @@
+<div class="form-input">
+    <div class="sign-form ">
+        <form method="post">
+            <div>
+                <h2>Sign Up</h2>
+                <div class="label-btn">
+                    <label class="email">Email: </label> <input type="email" name="email" class="flex-btn">
+                </div>
+                <div class="label-btn">
+                    <label class="email">Password: </label><input type="password" name="pass" class="flex-btn">
+                </div>
+                <div class="label-btn">
+                    <div class="radio-item">
+                        <input type="radio" name="editor" id="rd-item">
+                        <label class="check-box" for="rd-item">Admin</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" name="editor" id="rd-item1">
+                        <label for="rd-item1">Editor</label>
+                    </div>
+                </div>
+                <div class="submit-item">
+                    <div class="btn btn btn-primary btn-lg">
+                        <%= button_to "Submit", {class:'submit-btn'} %>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>

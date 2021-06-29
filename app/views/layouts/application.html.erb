@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Virtual Eye Consultant | Admin </title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+  <%# <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> %>
+
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <%# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css" integrity="sha512-pDpLmYKym2pnF0DNYDKxRnOk1wkM9fISpSOjt8kWFKQeDmBTjSnBZhTd41tXwh8+bRMoSaFsRnznZUiH9i3pxA==" crossorigin="anonymous" /> %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.css"
+    integrity="sha512-wXEyXmtKft9mEiu8LTc3+3BQ95aYbvxgvzH4IzFHOwvGlA14B6zREXD4CRmUPx8r2Z1RVUOXS47bwjsotSlZkQ=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote.min.css"
+    integrity="sha512-KbfxGgOkkFXdpDCVkrlTYYNXbF2TwlCecJjq1gK5B+BYwVk7DGbpYi4d4+Vulz9h+1wgzJMWqnyHQ+RDAlp8Dw=="
+    crossorigin="anonymous" />
+  <%# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/plugin/databasic/summernote-ext-databasic.min.css" integrity="sha512-yJAN+L5Id+AZIk7Br3DdMqzNhADLCrKQiHLrCJVaJvGFurSzx76FOH8Rbrm2+p8htvltFSBHIvjxE4ons7whOw==" crossorigin="anonymous" /> %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+  <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote.min.js"
+    integrity="sha512-kZv5Zq4Cj/9aTpjyYFrt7CmyTUlvBday8NGjD9MxJyOY/f2UfRYluKsFzek26XWQaiAp7SZ0ekE7ooL9IYMM2A=="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+</head>
+<% if user_signed_in? %>
+
+<body>
+  <%#= render 'layouts/preloader' %>
+
+  <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+    <%= render 'layouts/topNav' %>
+    <%= render 'layouts/leftNav' %>
+    <div class="page-wrapper">
+      <%= yield %>
+      <%= toastr_flash %>
+      <%#= render 'layouts/footer' %>
+    </div>
+  </div>
+  </div>
+</body>
+<%else%>
+
+<body>
+  <div class="div1">
+    <div class="border">
+      <div class="margin">
+        <div class="main_body">
+          <%= yield %>
+        </div>
+        <div class="footer">
+          <p>Design and Developed by: <span><a href="http://www.axiossoftware.com/">Axios Software</a></span></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+  </div>
+</body>
+<style>
+  .div1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    background-image: url('/Group 58.png');
+  }
+
+  .border {
+    box-shadow: 2px 2px 4px #8888;
+    background-color: White;
+    border-radius: 10px;
+
+  }
+
+  .margin {
+    margin: 20px;
+  }
+
+  .margin {
+    margin: 20px;
+  }
+
+  .border {
+    min-width: 30%;
+
+  }
+</style>
+<%end%>
+
+</html>

@@ -1,0 +1,35 @@
+<%= render "parts/breadcrumb" %>
+<%= render "parts/cardTop" %>
+
+
+<h1>Abouts</h1>
+
+<table class="table table-bordered table-striped table-hover datatable no-wrap v-middle mb-0 ">
+  <thead>
+    <tr>
+      <th>Privacy</th>
+      <th>Welcome</th>
+      <th>Thank you</th>
+      <th>Terms and condition</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @abouts.each do |about| %>
+      <tr>
+        <td><%= about.privacy %></td>
+        <td><%= about.welcome %></td>
+        <td><%= about.thank_you %></td>
+        <td><%= about.terms_and_condition %></td>
+        <td>
+          <%= link_to "Show", about %>
+          <%= link_to "Edit", edit_about_path(about) %>
+          <%= link_to "Destroy", about, method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render "parts/cardBottom" %>

@@ -1,0 +1,15 @@
+<%= wicked_pdf_stylesheet_link_tag %>
+<div class="some-div">
+  <div class="some-other-div">
+    <p>Name: <%= @customer.name %><br><br>
+      Contact: <%= @customer.contact %><br><br>
+      Email: <%= @customer.email %><br><br>
+      Date Of Birth: <%= @customer.date_of_birth %><br><br>
+
+        Problem in <%= @question.eye %> eye <br><br>
+         Symptoms: <%= @question.symptom %><br><br> 
+         Time Duration: <%= @question.duration %> <br><br> 
+        Description:<%= @question.description %> <br><br>
+    </p>
+  </div>
+</div>

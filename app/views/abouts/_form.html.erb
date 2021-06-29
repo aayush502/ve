@@ -1,0 +1,24 @@
+
+<%= simple_form_for(@about) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class="form-group">
+      <%= f.input :privacy, input_html: { class: "summernote" } %>
+    </div>
+    <div class="form-group">
+      <%= f.input :welcome, as: :text, input_html: { class: "summernote" } %>
+    </div>
+    <div class="form-group">
+      <%= f.input :thank_you, input_html: { class: "summernote" } %>
+    </div>
+    <div class="form-group">
+      <%= f.input :terms_and_condition, input_html: { class: "summernote" } %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>

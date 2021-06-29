@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<style>
+    .full {
+        padding-bottom: 10px;
+        color: #949191;
+    }
+
+    .form {
+        padding: 20px;
+        width: 435px;
+        background-color: white;
+        border: 1px solid white;
+        box-shadow: 0px 0px 13px 0px #bdbbbb8f;
+        border-radius: 10px;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
+    .bold {
+        font-weight: 700;
+        display: flex;
+    }
+
+    .full p {
+        margin-bottom: 0px !important;
+    }
+
+    .small {
+        font-weight: 500;
+        font-size: 1rem;
+        text-transform: capitalize;
+        color: #000000d9;
+    }
+
+    .email .small {
+        text-transform: unset;
+    }
+
+    h3 {
+        color: #040404b0;
+        text-align: center;
+    }
+
+    .description .full {
+        padding-bottom: 0;
+    }
+
+    .first {
+        min-width: 155px;
+    }
+</style>
+</head>
+
+<body>
+    <div class="form">
+        <h3>Author Email</h3>
+        <hr>
+        <div class="text-field">
+            <div class="full">
+                <div class="bold">
+                    <p class="first">Full Name:</p>
+                    <p class="small"><%= @user_detail.name %></p>
+                </div>
+            </div>
+            <div class="full">
+                <div class="email">
+                    <div class="bold">
+                        <p class="first"> Email:</p>
+                        <p class="small"><%= @user_detail.email %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="full">
+
+                <div class="bold">
+                    <p class="first"> Date of Birth: </p>
+                    <p class="small"><%= @user_detail.date_of_birth %></p>
+                </div>
+            </div>
+            <div class="full">
+
+                <div class="bold">
+                    <p class="first">Phone: </p>
+                    <p class="small"><%= @user_detail.contact %></p>
+                </div>
+            </div>
+            <div class="full">
+                <div class="bold">
+                    <p class="first"> Eye:</p>
+                    <p class="small"><%= @user_issues.eye %></p>
+                </div>
+
+            </div>
+            <div class="full">
+
+                <div class="bold">
+                    <p class="first">Duration: </p>
+                    <p class="small"><%= @user_issues.duration %></p>
+                </div>
+            </div>
+            <div class="full">
+                <div class="bold">
+                    <p class="first">Symptoms:</p>
+                    <p class="small"><%= @user_issues.symptom %></p>
+                </div>
+            </div>
+            <div class="full">
+                <div class="bold">
+                    <p class="first">Video Consultant:</p>
+                    <%if @user_issues.conference == true %>
+                    <p>I want a video consultant</p>
+                    <%else%>
+                    <p>I don't want a video consultant</p>
+                    <%end%>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <hr>
+        <div class="description">
+            <div class="full">
+                <div class="bold">
+                    <p class="first"> Description:</p>
+                </div>
+                <p class="small"><%= @user_issues.description %></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

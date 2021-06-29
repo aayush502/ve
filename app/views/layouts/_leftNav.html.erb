@@ -1,0 +1,26 @@
+<aside class="left-sidebar" data-sidebarbg="skin6">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar" data-sidebarbg="skin6">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<%= customer_info_path %>"
+                        aria-expanded="false"><i data-feather="user" class="feather-icon"></i><span
+                            class="hide-menu">Customer Info</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<%= abouts_path%>"
+                        aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
+                            class="hide-menu">About Us</span></a></li>
+                <%  if current_user.admin? %>
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<%= sign_up_user_path %>"
+                        aria-expanded="false"><i data-feather="log-in" class="feather-icon"></i><span
+                            class="hide-menu">Sign Up</span></a></li>
+                <%end%>
+                <li class="list-divider"></li>
+
+
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>

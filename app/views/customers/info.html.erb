@@ -1,0 +1,130 @@
+<%= render "parts/cardTop" %>
+<div class="table-btn">
+  <div class="data-name">
+    <p>Customer List</p>
+  </div>
+  <table class="table table-bordered table-striped table-hover datatable">
+    <thead class="thead-light">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Entry_date</th>
+        <th>Detail</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customer.each do |customer| %>
+      <tr>
+        <td><%= link_to customer.name, view_path(customer)  %></td>
+        <td><%= customer.email %></td>
+        <td><%= customer.contact %></td>
+        <td><%= customer.updated_at %></td>
+        <td><%= link_to "PDF  <i class='bx bx-download'></i>".html_safe, view_path(customer)%></td>
+        <td class="action"><button type="button" class="icon-btn" data-toggle="modal" data-target="#myModal"
+            id=<%= customer.id %> onclick="onViewClick(this.id)"><i class='bx bx-show eye'></i></button>
+          <%= link_to '<i class="bx bx-trash t-btn"></i>'.html_safe, delete_customer_path(customer), method: :delete, data: { confirm: "Are you sure?" }, class: "icon-btn" %>
+        </td>
+      </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="model-popup BodyWrapper_body__vPZ4s">
+      <div class="modal-content">
+        <div class="modal-btn">
+          <div class="modal-header">
+
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Report of: <p class="pop-name" id="customer_name"></p>
+            </h4>
+            <div class="email-btn">
+              <i class='bx bx-envelope mail'></i>
+              <p class="pop-email" id="customer_info"></p>
+            </div>
+          </div>
+          <div class="modal-body">
+            <table id="test">
+              <div class="popup">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="desc">
+                      Eye:
+                    </div>
+                    <p class="text-area" id="eye"></p>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="desc">
+                      Duration:
+                    </div>
+                    <p class="text-area" id="duration"></p>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="desc">
+                      Symptoms:
+                    </div>
+                    <p class="text-area" id="symptom"></p>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="desc">
+                      Description:
+                    </div>
+                    <p class="text-area area-desc" id="description"></p>
+                  </div>
+                </div>
+              </div>
+          </div>
+          </table>
+        </div>
+        <%# <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'parts/cardBottom' %>
+
+<script>
+  $(document).ready(function () {
+    $('.datatable').DataTable();
+
+  });
+
+  function popup() {
+    $(document).ready(function () {
+      $('#myModal').modal();
+    });
+  }
+
+  function onViewClick(id) {
+    $.ajax({
+      type: "get",
+      url: "customer_detail",
+      //dataType: "json",
+      data: {
+        "customer_detail": id
+      },
+      success: function (data) {
+        $("#customer_info").html(data["email"]);
+        $("#customer_name").html(data["name"]);
+        $("#description").html(data["description"]);
+        $("#eye").html(data["eye"]);
+        $("#duration").html(data["duration"]);
+        $("#symptom").html(data["symptom"]);
+        // testdata = 'description: ' + data["description"] + 'eye: ' + data["eye"] + 'duration: ' + data[
+        // "duration"] + 'symptom: ' + data["symptom"]
+        $("#test").text(testdata)
+      },
+      error: function (errorMessage) {},
+    })
+  };
+</script>
